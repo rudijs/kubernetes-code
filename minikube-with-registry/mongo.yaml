@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo 
+    spec:
+      containers:
+      - name: mongodb
+        image: localhost:5000/mongo:latest
+        ports:
+        - name: mongo-port
+          containerPort: 27017
